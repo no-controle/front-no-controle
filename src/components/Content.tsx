@@ -1,84 +1,61 @@
 import React from 'react';
+import { Dropdown, Grid, Header, Icon, Segment } from 'semantic-ui-react'
 import './Content.css';
+
+const dropdownOptions = [
+  { key: "09/2020", text: "09/2020", value: "09/2020" },
+  { key: "10/2020", text: "10/2020", value: "10/2020" },
+  { key: "11/2020", text: "11/2020", value: "11/2020" }
+]
+
+const generalCharts = [
+  { header: "Receitas" },
+  { header: "Despesas" }
+]
+
+const groupedCharts = [
+  { header: "Fixas" },
+  { header: "Variáveis" },
+  { header: "Extras" }
+]
+
+const ChartItem = (props: { header: String }) => {
+  return <Grid.Column>
+    <Header as='h3' attached='top'>
+      {props.header}
+    </Header>
+    <Segment placeholder attached>
+      <Header icon>
+        <Icon name='chart pie' />
+        It will soon have a chart here
+      </Header>
+    </Segment>
+  </Grid.Column>
+}
 
 const Content = () => {
   return <div className="ui container">
 
     <div className="periodSelector">
-      <div className="ui selection dropdown">
-        <i className="dropdown icon"></i>
-        <div className="default text">Gender</div>
-        <div className="menu">
-          <div className="item" data-value="1">Male</div>
-          <div className="item" data-value="0">Female</div>
-        </div>
-      </div>
+      <Dropdown
+        placeholder='Select a period'
+        selection
+        search
+        scrolling
+        options={dropdownOptions}
+        defaultValue={"09/2020"}
+      />
     </div>
 
-    <div className="ui grid">
+    <Grid>
+      <Grid.Row columns={2}>
+        {generalCharts.map((chartItem) => { return <ChartItem header={chartItem.header} /> })}
+      </Grid.Row>
 
-      <div className="two column row">
-        <div className="column">
-          <h3 className="ui top attached header">
-            Receitas
-          </h3>
-          <div className="ui placeholder attached segment">
-            <div className="ui icon header">
-              <i className="chart pie icon"></i>
-              It will soon have a chart here
-            </div>
-          </div>
-        </div>
-        <div className="column">
-          <h3 className="ui top attached header">
-            Despesas
-          </h3>
-          <div className="ui placeholder attached segment">
-            <div className="ui icon header">
-              <i className="chart pie icon"></i>
-              It will soon have a chart here
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="three column row">
-        <div className="column">
-          <h3 className="ui top attached header">
-            Fixas
-          </h3>
-          <div className="ui placeholder attached segment">
-            <div className="ui icon header">
-              <i className="chart pie icon"></i>
-              It will soon have a chart here
-            </div>
-          </div>
-        </div>
-        <div className="column">
-          <h3 className="ui top attached header">
-            Variáveis
-          </h3>
-          <div className="ui placeholder attached segment">
-            <div className="ui icon header">
-              <i className="chart pie icon"></i>
-              It will soon have a chart here
-            </div>
-          </div>
-        </div>
-        <div className="column">
-          <h3 className="ui top attached header">
-            Extras
-          </h3>
-          <div className="ui placeholder attached segment">
-            <div className="ui icon header">
-              <i className="chart pie icon"></i>
-              It will soon have a chart here
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
+      <Grid.Row columns={3}>
+      {groupedCharts.map((chartItem) => { return <ChartItem header={chartItem.header} /> })}
+      </Grid.Row>
+    </Grid>
   </div>
 }
 
