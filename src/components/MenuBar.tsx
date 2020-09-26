@@ -4,7 +4,7 @@ import { Menu } from 'semantic-ui-react'
 const MenuBar = () => {
   const [activeItem, setActiveItem] = useState('Geral');
 
-  const handleItemClick = (event: React.MouseEvent<HTMLAnchorElement>, name: any) => setActiveItem(name)
+  const handleItemClick = (event: any, option: any) => setActiveItem(option.name);
 
   return <Menu borderless>
     <div className="ui container">
