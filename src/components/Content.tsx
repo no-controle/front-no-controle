@@ -2,14 +2,10 @@ import React from 'react';
 import General from '../pages/General';
 import Monthly from '../pages/Monthly';
 
-const Content = () => {
-  // const page = 'General';
-  const page = 'Monthly';
-  // const page = 'Pay Day';
-
+const Content = (props: {currentPage: string}) => {
   return <>
-    {/* {page === 'General' && <General />} */}
-    {page === 'Monthly' && <Monthly />}
+    {props.currentPage === 'Geral' && <General />}
+    {props.currentPage === 'Mensal' && <Monthly />}
     {/* {page === 'Pay Day' && <PayDay />} */}
   </>
 }

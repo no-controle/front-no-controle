@@ -1,26 +1,24 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Menu } from 'semantic-ui-react'
 
-const MenuBar = () => {
-  const [activeItem, setActiveItem] = useState('Geral');
-
-  const handleItemClick = (event: any, option: any) => setActiveItem(option.name);
+const MenuBar = (props: {activeItem: string, onClick: any}) => {
+  const handleItemClick = (_event: any, option: any) => props.onClick(option.name);
 
   return <Menu borderless>
     <div className="ui container">
       <Menu.Item
         name='Geral'
-        active={activeItem === 'Geral'}
+        active={props.activeItem === 'Geral'}
         onClick={handleItemClick}
       />
       <Menu.Item
         name='Mensal'
-        active={activeItem === 'Mensal'}
+        active={props.activeItem === 'Mensal'}
         onClick={handleItemClick}
       />
       <Menu.Item
         name='Pagamento'
-        active={activeItem === 'Pagamento'}
+        active={props.activeItem === 'Pagamento'}
         onClick={handleItemClick}
       />
     </div>
