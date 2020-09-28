@@ -1,0 +1,10 @@
+{
+  "/api/*": "/$1",
+  "/general/periods": "/generalPeriods",
+  "/general/incomes\\?year=:year": "/generalIncomes/:year",
+  "/general/expenses\\?year=:year": "/generalExpenses/:year",
+  "/general/fixed\\?year=:year": "/generalFixed/:year",
+  "/general/variable\\?year=:year": "/generalFixed/:year",
+  "/general/extra\\?year=:year": "/generalFixed/:year",
+  "/monthly/periods": "/monthlyPeriods"
+}

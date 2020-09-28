@@ -1,0 +1,186 @@
+{
+  "generalPeriods": {
+    "periods": [
+      "2019",
+      "2020",
+      "2021"
+    ]
+  },
+  "generalIncomes": [
+    {
+      "id": 2020,
+      "incomes": [
+        {
+          "name": "Jan",
+          "amount": "3000"
+        },
+        {
+          "name": "Fev",
+          "amount": "3200"
+        },
+        {
+          "name": "Mar",
+          "amount": "3400"
+        },
+        {
+          "name": "Abr",
+          "amount": "3500"
+        }
+      ]
+    }
+  ],
+  "generalExpenses": [{
+    "id": 2020,
+    "expenses": [
+      {
+        "name": "Jan",
+        "amount": "1550"
+      },
+      {
+        "name": "Fev",
+        "amount": "1200"
+      },
+      {
+        "name": "Mar",
+        "amount": "1000"
+      },
+      {
+        "name": "Abr",
+        "amount": "1000"
+      }
+    ]
+  }],
+  "generalFixed": [{
+    "id": 2020,
+    "fixed": [
+      {
+        "name": "Jan",
+        "amount": "1000"
+      },
+      {
+        "name": "Fev",
+        "amount": "1000"
+      },
+      {
+        "name": "Mar",
+        "amount": "1000"
+      },
+      {
+        "name": "Abr",
+        "amount": "1000"
+      }
+    ]
+  }],
+  "generalVariable": [{
+    "id": 2020,
+    "variable": [
+      {
+        "name": "Jan",
+        "amount": "1000"
+      },
+      {
+        "name": "Fev",
+        "amount": "1000"
+      },
+      {
+        "name": "Mar",
+        "amount": "1000"
+      },
+      {
+        "name": "Abr",
+        "amount": "1000"
+      }
+    ]
+  }],
+  "generalExtra": [{
+    "id": 2020,
+    "extra": [
+      {
+        "name": "Jan",
+        "amount": "1000"
+      },
+      {
+        "name": "Fev",
+        "amount": "1000"
+      },
+      {
+        "name": "Mar",
+        "amount": "1000"
+      },
+      {
+        "name": "Abr",
+        "amount": "1000"
+      }
+    ]
+  }],
+  "monthlyPeriods": {
+    "periods": [
+      "09/2020",
+      "10/2020",
+      "11/2020"
+    ]
+  },
+  "monthlyFixed": [{
+    "id": 1,
+    "fixed": [
+      {
+        "name": "Jan",
+        "amount": "1000"
+      },
+      {
+        "name": "Fev",
+        "amount": "1000"
+      },
+      {
+        "name": "Mar",
+        "amount": "1000"
+      },
+      {
+        "name": "Abr",
+        "amount": "1000"
+      }
+    ]
+  }],
+  "monthlyVariable": [{
+    "id": 1,
+    "fixed": [
+      {
+        "name": "Jan",
+        "amount": "1000"
+      },
+      {
+        "name": "Fev",
+        "amount": "1000"
+      },
+      {
+        "name": "Mar",
+        "amount": "1000"
+      },
+      {
+        "name": "Abr",
+        "amount": "1000"
+      }
+    ]
+  }],
+  "monthlyExtra": [{
+    "id": 1,
+    "fixed": [
+      {
+        "name": "Jan",
+        "amount": "1000"
+      },
+      {
+        "name": "Fev",
+        "amount": "1000"
+      },
+      {
+        "name": "Mar",
+        "amount": "1000"
+      },
+      {
+        "name": "Abr",
+        "amount": "1000"
+      }
+    ]
+  }]
+}

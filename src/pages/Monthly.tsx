@@ -16,7 +16,7 @@ const groupedCharts = [
 
 const monthGeneralInfo = {
   income: 3000,
-  revenue: 1550.50,
+  expense: 1550.50,
   balance: 1449.50
 }
 
@@ -56,7 +56,7 @@ const Content = () => {
           <div className=''><Statistic label='Receita' value={formatCurrency(monthGeneralInfo.income)} size='small'/></div>
         </Grid.Column>
         <Grid.Column>
-          <div className=''><Statistic label='Despesa' value={formatCurrency(monthGeneralInfo.revenue)} size='small'/></div>
+          <div className=''><Statistic label='Despesa' value={formatCurrency(monthGeneralInfo.expense)} size='small'/></div>
         </Grid.Column>
         <Grid.Column>
           <div className=''><Statistic label='Saldo' value={formatCurrency(monthGeneralInfo.balance)} size='small'/></div>
