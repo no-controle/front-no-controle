@@ -1,10 +1,27 @@
 import React from 'react';
 import { Grid, Header, Icon, Segment, Dropdown } from 'semantic-ui-react'
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 import './General.css';
 
+const data = [
+  { name: "Jan", value: 3000 },
+  { name: "Fev", value: 4000 },
+  { name: "Mar", value: 4300 },
+  { name: "Abr", value: 6000 }];
+
 const generalCharts = [
-  { header: "Receitas" },
-  { header: "Despesas" }
+  // {
+  //   header: "Receitas",
+  //   data: [
+  //     { name: "Jan", value: 3000 },
+  //     { name: "Fev", value: 4000 },
+  //     { name: "Mar", value: 4300 },
+  //     { name: "Abr", value: 6000 }]
+  // },
+  {
+    header: "Despesas",
+    data: [{ name: "Jan", value: 4000 }]
+  }
 ]
 
 const groupedCharts = [
@@ -38,7 +55,6 @@ const Content = () => {
 
     <div className="periodSelector">
       <Dropdown
-        placeholder='Select a period'
         selection
         search
         scrolling
@@ -49,6 +65,20 @@ const Content = () => {
 
     <Grid>
       <Grid.Row columns={2}>
+        <Grid.Column>
+          <Header as='h3' attached='top'>
+            {'Receitas'}
+          </Header>
+          <Segment attached>
+            <LineChart width={500} height={300} data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+              <Line type="monotone" dataKey="value" stroke="#8884d8" />
+              <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+            </LineChart>
+          </Segment>
+        </Grid.Column>
         {generalCharts.map((chartItem) => { return <ChartItem header={chartItem.header} /> })}
       </Grid.Row>
 
