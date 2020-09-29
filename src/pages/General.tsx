@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Grid, Dropdown } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 import './General.css';
 import LineChartSegment from '../components/LineChartSegment';
 import { general, generalPeriods } from '../stubData.js';

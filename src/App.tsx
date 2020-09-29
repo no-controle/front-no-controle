@@ -4,10 +4,11 @@ import General from './pages/General';
 import Monthly from './pages/Monthly';
 
 import MenuBar from './components/MenuBar';
+import PayDay from './pages/PayDay';
 
 const Content = (props: { page: string }) => {
   if (props.page === 'Mensal') return <Monthly />
-  if (props.page === 'Pay Day') return <></>
+  if (props.page === 'Pagamento') return <PayDay />
   return <General />
 }
 

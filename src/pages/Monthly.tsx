@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Dropdown, Grid, Statistic } from 'semantic-ui-react'
+import { Grid, Statistic } from 'semantic-ui-react'
 import './Monthly.css';
 import PieChartSegment from '../components/PieChartSegment';
 import { monthly, monthlyPeriods } from '../stubData.js';

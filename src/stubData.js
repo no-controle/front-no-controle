@@ -273,8 +273,8 @@ export const monthlyPeriods = {
   periods: ["9/2020", "10/2020", "11/2020"]
 }
 
-export const monthly = (year) => {
-  if (year === "9/2020") {
+export const monthly = (period) => {
+  if (period === "9/2020") {
     return {
       monthly: {
         income: 4000,
@@ -324,7 +324,7 @@ export const monthly = (year) => {
         ]
       }
     }
-  } else if (year === "10/2020") {
+  } else if (period === "10/2020") {
     return {
       monthly: {
         income: 4000,
@@ -380,5 +380,51 @@ export const monthly = (year) => {
       variable: [],
       extra: []
     }
+  }
+}
+
+export const payment = (period) => {
+  if (period === "9/2020") {
+    return {
+      payments: [
+        {
+          name: "Aluguel",
+          value: 800
+        },
+        {
+          name: "Internet",
+          value: 100
+        },
+        {
+          name: "Nubank Jessica",
+          value: 4500.50
+        },
+        {
+          name: "Nubank Priscila",
+          value: 500
+        }
+      ]
+    }
+  }
+
+  return {
+    payments: [
+      {
+        name: "Aluguel",
+        value: 800
+      },
+      {
+        name: "Internet",
+        value: 100
+      },
+      {
+        name: "Nubank Jessica",
+        value: 100
+      },
+      {
+        name: "Nubank Priscila",
+        value: 50
+      }
+    ]
   }
 }
