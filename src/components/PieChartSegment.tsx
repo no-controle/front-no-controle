@@ -15,7 +15,6 @@ interface PieChartSegmentProps {
 }
 
 const PieChartSegment = (props: PieChartSegmentProps) => {
-  console.log(props.data);
   return <>
     <Header as='h3' attached='top'>
       {props.header}

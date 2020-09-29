@@ -15,7 +15,6 @@ interface LineChartSegmentProps {
 }
 
 const LineChartSegment = (props: LineChartSegmentProps) => {
-  console.log(props.data);
   return <>
     <Header as='h3' attached='top'>
       {props.header}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Grid, Dropdown } from 'semantic-ui-react'
 import './General.css';
 import LineChartSegment from '../components/LineChartSegment';
@@ -7,6 +7,10 @@ import { general, generalPeriods } from '../stubData.js';
 const mapPeriods = (periods: string[]) => periods.map((period) => { return { key: period, text: period, value: period } });
 
 const Content = () => {
+  const [period, setPeriod] = useState('2020');
+
+  const onPeriodSelect = (_e: any, { value }: any) => setPeriod(value);
+  
   return <div className="ui container">
 
     <div className="periodSelector">
@@ -14,30 +18,34 @@ const Content = () => {
         selection
         search
         scrolling
+        closeOnBlur
         options={mapPeriods(generalPeriods.periods)}
-        defaultValue={"2020"}
+        defaultValue={period}
+        onChange={onPeriodSelect}
       />
     </div>
+
+    {console.log(period)}
 
     <Grid>
       <Grid.Row columns={2}>
         <Grid.Column>
-          <LineChartSegment header={'Receitas'} data={general("2020").general.incomes} width={500} height={300} />
+          <LineChartSegment header={'Receitas'} data={general(period).general.incomes} width={500} height={300} />
         </Grid.Column>
         <Grid.Column>
-          <LineChartSegment header={'Despesas'} data={general("2020").general.expenses} width={500} height={300} />
+          <LineChartSegment header={'Despesas'} data={general(period).general.expenses} width={500} height={300} />
         </Grid.Column>
       </Grid.Row>
 
       <Grid.Row columns={3}>
         <Grid.Column>
-          <LineChartSegment header={'Fixas'} data={general("2020").general.fixed} width={300} height={300} />
+          <LineChartSegment header={'Fixas'} data={general(period).general.fixed} width={300} height={300} />
         </Grid.Column>
         <Grid.Column>
-          <LineChartSegment header={'Variáveis'} data={general("2020").general.variable} width={300} height={300} />
+          <LineChartSegment header={'Variáveis'} data={general(period).general.variable} width={300} height={300} />
         </Grid.Column>
         <Grid.Column>
-          <LineChartSegment header={'Extras'} data={general("2020").general.extra} width={300} height={300} />
+          <LineChartSegment header={'Extras'} data={general(period).general.extra} width={300} height={300} />
         </Grid.Column>
       </Grid.Row>
     </Grid>
