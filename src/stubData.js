@@ -389,19 +389,23 @@ export const payment = (period) => {
       payments: [
         {
           name: "Aluguel",
-          value: 800
+          value: 800,
+          paid: false
         },
         {
           name: "Internet",
-          value: 100
+          value: 100,
+          paid: true
         },
         {
           name: "Nubank Jessica",
-          value: 4500.50
+          value: 4500.50,
+          paid: false
         },
         {
           name: "Nubank Priscila",
-          value: 500
+          value: 500,
+          paid: false
         }
       ]
     }
@@ -411,19 +415,23 @@ export const payment = (period) => {
     payments: [
       {
         name: "Aluguel",
-        value: 800
+        value: 800,
+        paid: false
       },
       {
         name: "Internet",
-        value: 100
+        value: 100,
+        paid: false
       },
       {
         name: "Nubank Jessica",
-        value: 100
+        value: 100,
+        paid: false
       },
       {
         name: "Nubank Priscila",
-        value: 50
+        value: 50,
+        paid: false
       }
     ]
   }

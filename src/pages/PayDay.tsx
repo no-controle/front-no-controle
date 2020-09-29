@@ -28,7 +28,7 @@ const PayDay = () => {
           <Table.Row>
             <Table.Cell>{expense.name}</Table.Cell>
             <Table.Cell width='8' textAlign='center'>
-              <Button color='red' fluid>{formatCurrency(expense.value)}</Button>
+              <Button color={expense.paid ? 'green' : 'red'} fluid>{formatCurrency(expense.value)}</Button>
             </Table.Cell>
           </Table.Row>)}
       </Table.Body>
