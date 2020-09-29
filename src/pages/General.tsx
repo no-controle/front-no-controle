@@ -3,29 +3,16 @@ import { Grid, Dropdown } from 'semantic-ui-react'
 import './General.css';
 import LineChartSegment from '../components/LineChartSegment';
 import { general, generalPeriods } from '../stubData.js';
-
-const mapPeriods = (periods: string[]) => periods.map((period) => { return { key: period, text: period, value: period } });
+import DropdownInput from '../components/DropdownInput';
 
 const Content = () => {
   const [period, setPeriod] = useState('2020');
 
-  const onPeriodSelect = (_e: any, { value }: any) => setPeriod(value);
-  
   return <div className="ui container">
 
     <div className="periodSelector">
-      <Dropdown
-        selection
-        search
-        scrolling
-        closeOnBlur
-        options={mapPeriods(generalPeriods.periods)}
-        defaultValue={period}
-        onChange={onPeriodSelect}
-      />
+      <DropdownInput options={generalPeriods.periods} defaultValue={period} onChange={setPeriod} />
     </div>
-
-    {console.log(period)}
 
     <Grid>
       <Grid.Row columns={2}>

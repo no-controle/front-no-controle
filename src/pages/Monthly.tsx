@@ -3,28 +3,17 @@ import { Dropdown, Grid, Statistic } from 'semantic-ui-react'
 import './Monthly.css';
 import PieChartSegment from '../components/PieChartSegment';
 import { monthly, monthlyPeriods } from '../stubData.js';
-
-const mapPeriods = (periods: string[]) => periods.map((period) => { return { key: period, text: period, value: period } });
+import DropdownInput from '../components/DropdownInput';
 
 const Content = () => {
   const [period, setPeriod] = useState('09/2020');
 
-  const onPeriodSelect = (_e: any, { value }: any) => setPeriod(value);
-  
   const formatCurrency = (value: number) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
 
   return <div className="ui container">
 
     <div className="periodSelector">
-      <Dropdown
-        selection
-        search
-        scrolling
-        closeOnBlur
-        options={mapPeriods(monthlyPeriods.periods)}
-        defaultValue={period}
-        onChange={onPeriodSelect}
-      />
+      <DropdownInput options={monthlyPeriods.periods} defaultValue={period} onChange={setPeriod} />
     </div>
 
     <Grid>
