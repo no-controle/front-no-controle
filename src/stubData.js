@@ -270,11 +270,11 @@ export const general = (year) => {
 }
 
 export const monthlyPeriods = {
-  periods: ["09/2020", "10/2020", "11/2020"]
+  periods: ["9/2020", "10/2020", "11/2020"]
 }
 
 export const monthly = (year) => {
-  if (year === "09/2020") {
+  if (year === "9/2020") {
     return {
       monthly: {
         income: 4000,

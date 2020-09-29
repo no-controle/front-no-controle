@@ -5,8 +5,10 @@ import PieChartSegment from '../components/PieChartSegment';
 import { monthly, monthlyPeriods } from '../stubData.js';
 import DropdownInput from '../components/DropdownInput';
 
+const currentMonth = `${new Date().getMonth() + 1}/${new Date().getFullYear()}`;
+
 const Content = () => {
-  const [period, setPeriod] = useState('09/2020');
+  const [period, setPeriod] = useState(currentMonth);
 
   const formatCurrency = (value: number) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
 

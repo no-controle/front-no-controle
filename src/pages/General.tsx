@@ -5,8 +5,10 @@ import LineChartSegment from '../components/LineChartSegment';
 import { general, generalPeriods } from '../stubData.js';
 import DropdownInput from '../components/DropdownInput';
 
+const currentYear = new Date().getFullYear().toString();
+
 const Content = () => {
-  const [period, setPeriod] = useState('2020');
+  const [period, setPeriod] = useState(currentYear);
 
   return <div className="ui container">
 
