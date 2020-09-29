@@ -19,13 +19,13 @@ const Content = () => {
     <Grid>
       <Grid.Row className='generalInfo' textAlign='center' verticalAlign='middle' columns={3}>
         <Grid.Column>
-          <div className=''><Statistic label='Receita' value={formatCurrency(monthly(period).monthly.income)} size='small' /></div>
+          <Statistic label='Receita' value={formatCurrency(monthly(period).monthly.income)} size='small' />
         </Grid.Column>
         <Grid.Column>
-          <div className=''><Statistic label='Despesa' value={formatCurrency(monthly(period).monthly.expense)} size='small' /></div>
+          <Statistic label='Despesa' value={formatCurrency(monthly(period).monthly.expense)} size='small' />
         </Grid.Column>
         <Grid.Column>
-          <div className=''><Statistic label='Saldo' value={formatCurrency(monthly(period).monthly.balance)} size='small' /></div>
+          <Statistic label='Saldo' value={formatCurrency(monthly(period).monthly.balance)} size='small' />
         </Grid.Column>
       </Grid.Row>
 
