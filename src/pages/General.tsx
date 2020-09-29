@@ -1,54 +1,10 @@
 import React from 'react';
-import { Grid, Header, Icon, Segment, Dropdown } from 'semantic-ui-react'
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
+import { Grid, Dropdown } from 'semantic-ui-react'
 import './General.css';
+import LineChartSegment from '../components/LineChartSegment';
+import { general, generalPeriods } from '../stubData.js';
 
-const data = [
-  { name: "Jan", value: 3000 },
-  { name: "Fev", value: 4000 },
-  { name: "Mar", value: 4300 },
-  { name: "Abr", value: 6000 }];
-
-const generalCharts = [
-  // {
-  //   header: "Receitas",
-  //   data: [
-  //     { name: "Jan", value: 3000 },
-  //     { name: "Fev", value: 4000 },
-  //     { name: "Mar", value: 4300 },
-  //     { name: "Abr", value: 6000 }]
-  // },
-  {
-    header: "Despesas",
-    data: [{ name: "Jan", value: 4000 }]
-  }
-]
-
-const groupedCharts = [
-  { header: "Fixas" },
-  { header: "Variáveis" },
-  { header: "Extras" }
-]
-
-const dropdownOptions = [
-  { key: "2019", text: "2019", value: "2019" },
-  { key: "2020", text: "2020", value: "2020" },
-  { key: "2021", text: "2021", value: "2021" }
-]
-
-const ChartItem = (props: { header: String }) => {
-  return <Grid.Column>
-    <Header as='h3' attached='top'>
-      {props.header}
-    </Header>
-    <Segment placeholder attached>
-      <Header icon>
-        <Icon name='chart area' />
-        Logo mais terá um gráfico aqui
-      </Header>
-    </Segment>
-  </Grid.Column>
-}
+const mapPeriods = (periods: string[]) => periods.map((period) => { return { key: period, text: period, value: period } });
 
 const Content = () => {
   return <div className="ui container">
@@ -58,7 +14,7 @@ const Content = () => {
         selection
         search
         scrolling
-        options={dropdownOptions}
+        options={mapPeriods(generalPeriods.periods)}
         defaultValue={"2020"}
       />
     </div>
@@ -66,24 +22,23 @@ const Content = () => {
     <Grid>
       <Grid.Row columns={2}>
         <Grid.Column>
-          <Header as='h3' attached='top'>
-            {'Receitas'}
-          </Header>
-          <Segment attached>
-            <LineChart width={500} height={300} data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
-              <Line type="monotone" dataKey="value" stroke="#8884d8" />
-              <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-            </LineChart>
-          </Segment>
+          <LineChartSegment header={'Receitas'} data={general("2020").general.incomes} width={500} height={300} />
         </Grid.Column>
-        {generalCharts.map((chartItem) => { return <ChartItem header={chartItem.header} /> })}
+        <Grid.Column>
+          <LineChartSegment header={'Despesas'} data={general("2020").general.expenses} width={500} height={300} />
+        </Grid.Column>
       </Grid.Row>
 
       <Grid.Row columns={3}>
-        {groupedCharts.map((chartItem) => { return <ChartItem header={chartItem.header} /> })}
+        <Grid.Column>
+          <LineChartSegment header={'Fixas'} data={general("2020").general.fixed} width={300} height={300} />
+        </Grid.Column>
+        <Grid.Column>
+          <LineChartSegment header={'Variáveis'} data={general("2020").general.variable} width={300} height={300} />
+        </Grid.Column>
+        <Grid.Column>
+          <LineChartSegment header={'Extras'} data={general("2020").general.extra} width={300} height={300} />
+        </Grid.Column>
       </Grid.Row>
     </Grid>
   </div>
