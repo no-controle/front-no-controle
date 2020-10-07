@@ -23,7 +23,7 @@ const PieChartSegment = (props: PieChartSegmentProps) => {
       <PieChart width={300} height={300}>
         <Pie dataKey="amount" data={props.data} fill="#82ca9d" label >
           {
-            props.data.map((_entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
+            props.data && props.data.map((_entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
           }
         </Pie>
         <Tooltip />

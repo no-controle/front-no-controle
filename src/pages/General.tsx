@@ -24,6 +24,8 @@ const Content = () => {
       setGeneralData(data[1]);
     }).catch(function (error) {
       console.log(error);
+      setPeriodsList({ periods: [] });
+      setGeneralData({ general: { incomes: [], expenses: [], fixed: [], variable: [], extra: [] } });
     });
   }, [period]);
 

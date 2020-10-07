@@ -27,6 +27,8 @@ const Content = () => {
       setMonthlyData(data[1]);
     }).catch(function (error) {
       console.log(error);
+      setPeriodsList({periods: []});
+      setMonthlyData({ income: 0, expense: 0, balance: 0, fixed: [], variable: [], extra: [] });
     });
   }, [period]);
 

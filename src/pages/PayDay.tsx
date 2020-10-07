@@ -15,7 +15,7 @@ const PayDay = () => {
 
   useEffect(() => {
     Promise.all([
-      fetch('http://localhost:8089/monthly/periods'),
+      fetch('http://localhost:8089/payments/periods'),
       fetch(`http://localhost:8089/payments?month=${getMonth(period)}&year=${getYear(period)}`)
     ]).then(function (responses) {
       return Promise.all(responses.map(function (response) {
@@ -29,6 +29,20 @@ const PayDay = () => {
       console.log(error);
     });
   }, [period]);
+
+  const updatePayment = (expense: any) => {
+    let paid = expense.paid;
+    expense.paid = !paid;
+    fetch('http://localhost:8089/payments', {
+      'method': 'POST',
+      'headers': {'accept': 'application/json', 'content-type': 'application/json'},
+      'body': JSON.stringify(expense)
+    })
+    .then(() => fetch(`http://localhost:8089/payments?month=${getMonth(period)}&year=${getYear(period)}`))
+    .then(response => response.json())
+    .then(data => setPaymentData(data))
+    .catch(error => console.log(error));
+  };
 
   return <div className="ui container">
 
@@ -49,7 +63,7 @@ const PayDay = () => {
           <Table.Row>
             <Table.Cell>{expense.name}</Table.Cell>
             <Table.Cell width='8' textAlign='center'>
-              <Button color={expense.paid ? 'green' : 'red'} fluid>{formatCurrency(expense.value)}</Button>
+              <Button color={expense.paid ? 'green' : 'red'} onClick={() => updatePayment(expense)} fluid>{formatCurrency(expense.value)}</Button>
             </Table.Cell>
           </Table.Row>)}
       </Table.Body>
