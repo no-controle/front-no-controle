@@ -32,7 +32,7 @@ const PayDay = () => {
 
   const updatePayment = (expense: any) => {
     let paid = expense.paid;
-    expense.paid = !paid;
+    expense.paid = !paid
     fetch('http://localhost:8089/payments', {
       'method': 'POST',
       'headers': {'accept': 'application/json', 'content-type': 'application/json'},
@@ -55,6 +55,7 @@ const PayDay = () => {
         <Table.Row>
           <Table.HeaderCell>Nome</Table.HeaderCell>
           <Table.HeaderCell textAlign='center'>Valor</Table.HeaderCell>
+          <Table.HeaderCell colSpan='2'>Detalhes</Table.HeaderCell>
         </Table.Row>
       </Table.Header>
 
@@ -66,6 +67,20 @@ const PayDay = () => {
               <Button color={expense.paid ? 'green' : 'red'} onClick={() => updatePayment(expense)} fluid>{formatCurrency(expense.value)}</Button>
             </Table.Cell>
           </Table.Row>)}
+          <Table.Row>
+            <Table.Cell>Streamings</Table.Cell>
+            <Table.Cell width='8' textAlign='center'>
+              <Button color='green' fluid>{'R$200'}</Button>
+            </Table.Cell>
+            <Table.Cell>Netflix</Table.Cell>
+            <Table.Cell>R$32,90</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell/>
+            <Table.Cell/>
+            <Table.Cell>Spotify</Table.Cell>
+            <Table.Cell>R$21,90</Table.Cell>
+          </Table.Row>
       </Table.Body>
     </Table>
   </div>

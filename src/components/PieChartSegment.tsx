@@ -21,7 +21,7 @@ const PieChartSegment = (props: PieChartSegmentProps) => {
     </Header>
     <Segment attached>
       <PieChart width={300} height={300}>
-        <Pie dataKey="amount" data={props.data} fill="#82ca9d" label >
+        <Pie dataKey="amount" data={props.data} fill="#82ca9d" onClick={(a) => {console.log(a.payload.payload);}} label >
           {
             props.data && props.data.map((_entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
           }
