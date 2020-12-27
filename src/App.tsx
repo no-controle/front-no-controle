@@ -1,24 +1,30 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './App.css';
-import General from './pages/General';
-import Monthly from './pages/Monthly';
 
 import MenuBar from './components/MenuBar';
+import General from './pages/General';
+import Monthly from './pages/Monthly';
 import PayDay from './pages/PayDay';
 
-const Content = (props: { page: string }) => {
-  if (props.page === 'Mensal') return <Monthly />
-  if (props.page === 'Pagamento') return <PayDay />
-  return <General />
-}
-
 function App() {
-  const [currentPage, setCurrentPage] = useState('Geral');
 
-  return <>
-    <MenuBar activeItem={currentPage} onClick={setCurrentPage} />
-    <Content page={currentPage} />
-  </>;
+  return <Router>
+    <div>
+      <MenuBar />
+      <Switch>
+        <Route path="/mensal">
+          <Monthly />
+        </Route>
+        <Route path="/pagamento">
+          <PayDay />
+        </Route>
+        <Route path="/">
+          <General />
+        </Route>
+      </Switch>
+    </div>
+  </Router>;
 }
 
 export default App;

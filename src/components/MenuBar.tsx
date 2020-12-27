@@ -1,25 +1,26 @@
 import React from 'react'
+import { useLocation } from "react-router-dom";
 import { Menu } from 'semantic-ui-react'
 
-const MenuBar = (props: {activeItem: string, onClick: any}) => {
-  const handleItemClick = (_event: any, option: any) => props.onClick(option.name);
+const MenuBar = () => {
+  const currentLocation = useLocation().pathname;
 
   return <Menu borderless>
     <div className="ui container">
       <Menu.Item
         name='Geral'
-        active={props.activeItem === 'Geral'}
-        onClick={handleItemClick}
+        active={currentLocation === '/'}
+        href='/'
       />
       <Menu.Item
         name='Mensal'
-        active={props.activeItem === 'Mensal'}
-        onClick={handleItemClick}
+        active={currentLocation === '/mensal'}
+        href='/mensal'
       />
       <Menu.Item
         name='Pagamento'
-        active={props.activeItem === 'Pagamento'}
-        onClick={handleItemClick}
+        active={currentLocation === '/pagamento'}
+        href='/pagamento'
       />
     </div>
   </Menu>
