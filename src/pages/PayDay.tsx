@@ -15,8 +15,8 @@ const PayDay = () => {
 
   useEffect(() => {
     Promise.all([
-      fetch('http://localhost:8089/payments/periods'),
-      fetch(`http://localhost:8089/payments?month=${getMonth(period)}&year=${getYear(period)}`)
+      fetch('http://localhost:7000/payments/periods'),
+      fetch(`http://localhost:7000/payments?month=${getMonth(period)}&year=${getYear(period)}`)
     ]).then(function (responses) {
       return Promise.all(responses.map(function (response) {
         return response.json();
@@ -33,12 +33,12 @@ const PayDay = () => {
   const updatePayment = (expense: any) => {
     let paid = expense.paid;
     expense.paid = !paid
-    fetch('http://localhost:8089/payments', {
+    fetch('http://localhost:7000/payments', {
       'method': 'POST',
       'headers': {'accept': 'application/json', 'content-type': 'application/json'},
       'body': JSON.stringify(expense)
     })
-    .then(() => fetch(`http://localhost:8089/payments?month=${getMonth(period)}&year=${getYear(period)}`))
+    .then(() => fetch(`http://localhost:7000/payments?month=${getMonth(period)}&year=${getYear(period)}`))
     .then(response => response.json())
     .then(data => setPaymentData(data))
     .catch(error => console.log(error));
