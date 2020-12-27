@@ -1,5 +1,4 @@
 export function mapMonthlyData(data) {
-  console.log(data);
   if (data.message === "Not exist for the period informed") {
     return data;
   }

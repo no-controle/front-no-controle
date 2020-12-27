@@ -29,8 +29,6 @@ const Content = () => {
     });
   }, [period]);
 
-  console.log(generalData);
-
   return <div className="ui container">
 
     <div className="periodSelector">
